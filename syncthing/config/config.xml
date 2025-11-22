@@ -29,20 +29,14 @@
         <caseSensitiveFS>false</caseSensitiveFS>
         <junctionsAsDirs>false</junctionsAsDirs>
     </folder>
-    <device id="" name="kindle" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
-        <address>dynamic</address>
-        <paused>false</paused>
-        <autoAcceptFolders>false</autoAcceptFolders>
-        <maxSendKbps>0</maxSendKbps>
-        <maxRecvKbps>0</maxRecvKbps>
-        <maxRequestKiB>0</maxRequestKiB>
-        <untrusted>false</untrusted>
-        <remoteGUIPort>80</remoteGUIPort>
-    </device>
     <gui enabled="true" tls="false" debugging="false">
         <address>0.0.0.0:80</address>
+        <user>admin</user>
+        <password>$2a$10$pmxO5vDfO7LukaAH29ixouD5pw3nbhn52KWHuoR67RP7Epu3eTnPe</password>
         <apikey></apikey>
+        <insecureAdminAccess>true</insecureAdminAccess>
         <theme>dark</theme>
+        <insecureSkipHostcheck>true</insecureSkipHostcheck>
     </gui>
     <ldap></ldap>
     <options>
@@ -62,11 +56,11 @@
         <natLeaseMinutes>60</natLeaseMinutes>
         <natRenewalMinutes>30</natRenewalMinutes>
         <natTimeoutSeconds>10</natTimeoutSeconds>
-        <urAccepted>0</urAccepted>
-        <urSeen>0</urSeen>
+        <urAccepted>-1</urAccepted>
+        <urSeen>3</urSeen>
         <urUniqueID></urUniqueID>
         <urURL>https://data.syncthing.net/newdata</urURL>
-        <urPostInsecurely>false</urPostInsecurely>
+        <urPostInsecurely>true</urPostInsecurely>
         <urInitialDelayS>1800</urInitialDelayS>
         <restartOnWakeup>true</restartOnWakeup>
         <autoUpgradeIntervalH>0</autoUpgradeIntervalH>
@@ -79,7 +73,6 @@
         <releasesURL></releasesURL>
         <overwriteRemoteDeviceNamesOnConnect>false</overwriteRemoteDeviceNamesOnConnect>
         <tempIndexMinBlocks>10</tempIndexMinBlocks>
-        <unackedNotificationID>authenticationUserAndPassword</unackedNotificationID>
         <trafficClass>0</trafficClass>
         <setLowPriority>true</setLowPriority>
         <maxFolderConcurrency>0</maxFolderConcurrency>
@@ -97,11 +90,8 @@
         <insecureAllowOldTLSVersions>true</insecureAllowOldTLSVersions>
     </options>
     <defaults>
-        <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+        <folder id="" label="" path="/mnt/us" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
             <filesystemType>basic</filesystemType>
-            <device id="" introducedBy="">
-                <encryptionPassword></encryptionPassword>
-            </device>
             <minDiskFree unit="%">1</minDiskFree>
             <versioning>
                 <cleanupIntervalS>3600</cleanupIntervalS>
@@ -130,7 +120,7 @@
             <caseSensitiveFS>false</caseSensitiveFS>
             <junctionsAsDirs>false</junctionsAsDirs>
         </folder>
-        <device id="" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+        <device id="" name="kindle" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
             <address>dynamic</address>
             <paused>false</paused>
             <autoAcceptFolders>false</autoAcceptFolders>
@@ -140,6 +130,8 @@
             <untrusted>false</untrusted>
             <remoteGUIPort>80</remoteGUIPort>
         </device>
-        <ignores></ignores>
+        <ignores>
+            <line>*.sdr</line>
+        </ignores>
     </defaults>
 </configuration>

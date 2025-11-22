@@ -9,11 +9,11 @@ Syncthing for Kindle (KUAL)
 4. Connect your Kindle to your PC
 5. Copy the `syncthing/` folder to `<KINDLE-ROOT>/extensions/syncthing/`, and safely eject
 6. Goto KUAL >> "Syncthing" 
-7. Select "Start Syncthing" from the menu; an IP address such as `192.168.127.1:8384` will appear logged on the screen (you can also tind out your Kindle's IP address by typing `;711` in Search)
+7. Select "Start Syncthing" from the menu; an IP address such as `192.168.127.1:8384` will appear logged on the screen (you can also find out your Kindle's IP address by typing `;711` in Search)
 	- If things aren't working, select "Show Syncthing status" from the menu, which will check if Syncthing is running.
-8. Open `http://<IP-ADDRESS>:8080` in your PC's browser; this will give you the Syncthing admin page on your Kindle
+8. Open `http://<IP-ADDRESS>` in your PC's browser; this will give you the Syncthing admin page on your Kindle. The default login username:password is admin:admin
 9. Configure all peers and folders in Syncthing on both your Kindle and PC/server (Syncthing must also be running on your PC/server)
-10. Ignore Kindle auto-generated index files: `*.sdr`
+10. Ignore any Kindle auto-generated index files; `*.sdr` is pre-configured
 11.  If you need to restart Syncthing or are done synchronising, select "Stop Syncthing"
 	- Note: Connecting the Kindle to a computer or restarting Kindle will terminate the Syncthing process and firewall.
 
@@ -34,6 +34,7 @@ cd /mnt/us/extensions/syncthing
 # sh bin/syncthing_wrapper.sh
 bin/syncthing -home=/mnt/us/extensions/syncthing/config -gui-address '0.0.0.0:80' -no-upgrade -no-restart
 ```
+To SSH tunnel on PC: `ssh -L 8421:127.0.0.1:80 root@192.168.15.244`, login (user `root`, no password) then you can access the Kindle's Syncthing WebUI from http://localhost:8421
 
 Syncthing versions tested:
 
