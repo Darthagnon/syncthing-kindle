@@ -17,8 +17,14 @@
                 },
                 {
                     "name": "Show Status",
-                    "priority": 4,
+                    "priority": 3,
                     "action": "./bin/syncthing_show_status.sh",
+                    "exitmenu": false
+                }, 
+                {
+                    "name": "Toggle: Start Syncthing on boot",
+                    "priority": 4,
+                    "action": "./bin/syncthing_boot.sh",
                     "exitmenu": false
                 }
             ]
