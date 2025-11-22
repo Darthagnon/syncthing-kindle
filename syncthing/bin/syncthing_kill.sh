@@ -1,6 +1,6 @@
 col=$((`cat COL.txt`))
 eips $col 3 "Killing & closing ports...                    "
-iptables -D INPUT -i wlan0 -p tcp --dport 8384 -j ACCEPT
+iptables -D INPUT -i wlan0 -p tcp --dport 80 -j ACCEPT
 iptables -D INPUT -i wlan0 -p tcp --dport 22000 -j ACCEPT
 iptables -D INPUT -i wlan0 -p tcp --dport 21025 -j ACCEPT
 lipc-send-event com.lab126.hal powerButtonPressed

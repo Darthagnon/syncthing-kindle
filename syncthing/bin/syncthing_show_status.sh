@@ -1,10 +1,8 @@
 #!/bin/sh
-col=$((`cat COL.txt`))
-test_process=$(ps aux | grep "[s]yncthing")
-if [ -n "$test_process" ]
-then
-    result="Syncthing is Running.....  "
+col=$((`cat ./bin/COL.txt`))
+if pgrep -x syncthing >/dev/null 2>&1; then
+    result="Syncthing is running.....  "
 else
-    result="Syncthing is not running   "
+    result="Syncthing is not running X  "
 fi
 eips $col 3 "$result"

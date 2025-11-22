@@ -2,9 +2,9 @@
 col=$((`cat ./bin/COL.txt`))
 
 # open Syncthing ports
-iptables -A INPUT -i wlan0 -p tcp --dport 8384 -j ACCEPT 
-iptables -A INPUT -i wlan0 -p tcp --dport 22000 -j ACCEPT 
-iptables -A INPUT -i wlan0 -p tcp --dport 21025 -j ACCEPT
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -p tcp --dport 22000 -j ACCEPT 
+iptables -I INPUT -p tcp --dport 21025 -j ACCEPT
 
 # enable wireless if it is currently off
 WIFI_WAS_OFF=0
@@ -20,7 +20,7 @@ if [ "$(ps aux | grep '[s]yncthing')" ];then killall syncthing;fi
 
 # refresh IP display and monitor wlan status in the background
 while :; do
-    eips $col 1 "== `ifconfig wlan0 | grep 'inet addr' | awk -F '[ :]' '{print $13}':8384` =="
+    eips $col 1 "== `ifconfig wlan0 | grep 'inet addr' | awk -F '[ :]' '{print $13}'` =="
     sleep 3
     if [ 0 -eq `lipc-get-prop com.lab126.cmd wirelessEnable` ]; then
     	lipc-send-event com.lab126.hal powerButtonPressed

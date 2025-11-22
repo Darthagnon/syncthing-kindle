@@ -23,9 +23,21 @@ Devices tested:
 - Kindle Touch (v1.0)
 - Kindle 4 (v2.x)
 
+If, during testing (e.g. via Kindle USBNetwork SSH), you run syncthing without config path arguments, it will generate default config in `/tmp/root/.config/`; this can be removed for cleanup purposes by `rm -rf /tmp/root/.config`
+
+Run tests via Kindle USBNetwork SSH: 
+```
+mntroot rw
+cd /mnt/us/extensions/syncthing
+sh bin/syncthing_wrapper.sh
+bin/syncthing --home=/mnt/us/extensions/syncthing/config --gui-address '0.0.0.0:80' --no-upgrade --no-restart
+```
+
 Syncthing versions tested:
+
+- [Syncthing v1.19.2](https://github.com/syncthing/syncthing/releases/tag/v1.19.2) is the last version that works on Kindle, due to GoLang versions since v1.17.7 no longer having fallback from `accept4()` to `accept()` on Linux ARM builds ([Syncthing Issue #8325](https://github.com/syncthing/syncthing/issues/8325))
 - (TODO) [Syncthing v1.0.1](https://github.com/syncthing/syncthing/releases/tag/v1.0.1) ([final version that runs on WinXP hosts](https://forum.syncthing.net/t/syncthing-in-windows-xp/15246/2))
-- [Syncthing v1.20.4](https://github.com/syncthing/syncthing/releases/tag/v1.20.4) (2 Aug 2022, v1.0 of this plugin was released 4 Aug 2022)
+- [Syncthing v1.20.4](https://github.com/syncthing/syncthing/releases/tag/v1.20.4) (2 Aug 2022, v1.0 of this plugin was released 4 Aug 2022; does not work due to GoLang v1.18)
 - (TODO) [Syncthing v1.27.0](https://github.com/syncthing/syncthing/releases/tag/v1.27.0) ([final version that runs on Win7 hosts](https://forum.syncthing.net/t/syncthing-crashing-after-updating-to-v1-27-1-windows-7-runtime-asmstdcall/21248))
 - (TODO) [Syncthing v1.30.0](https://github.com/syncthing/syncthing/releases/tag/v1.30.0) (final release of Syncthing v1.xx.x)
 
