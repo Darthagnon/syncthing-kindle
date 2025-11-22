@@ -2,8 +2,8 @@
 <extension>
 	<information>
 		<name>Syncthing</name>
-		<version>1.0</version>
-		<author>Guten</author>
+		<version>2.0</version>
+		<author>Darthagnon</author>
 		<id>Syncthing</id>
 	</information>
 	<menus>
